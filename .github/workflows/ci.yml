@@ -1,0 +1,36 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  js:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [18, 20, 22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      # Test against the current cabalspy-id from GitHub (works before it is on npm).
+      - uses: actions/checkout@v4
+        with:
+          repository: CabalSpy/cabalspy-id-js
+          path: _core
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build cabalspy-id
+        working-directory: _core
+        run: npm ci && npm run build && npm pack
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Install the local cabalspy-id build
+        run: npm install --no-save --no-package-lock $(ls ${{ github.workspace }}/_core/cabalspy-id-*.tgz) react@18
+      - run: npm test

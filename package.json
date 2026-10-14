@@ -1,0 +1,94 @@
+{
+  "name": "socialfi-widget",
+  "version": "0.5.0",
+  "description": "SocialFi widget — drop-in \"Sign in with CabalSpy ID\" button and token theses widget for any website or React app: login with X + verified wallets, KOL badges, holders' theses with live PnL. By CabalSpy ID.",
+  "keywords": [
+    "socialfi-widget",
+    "socialfi-api",
+    "login-button",
+    "token-thesis",
+    "socialfi",
+    "social-trading",
+    "copy-trading",
+    "crypto-social",
+    "web3-social",
+    "kol",
+    "kol-tracker",
+    "wallet-tracker",
+    "trading-leaderboard",
+    "pnl",
+    "crypto-login",
+    "solana",
+    "bnb",
+    "base",
+    "ethereum",
+    "cabalspy",
+    "cabalspy-id",
+    "react",
+    "widget"
+  ],
+  "license": "MIT",
+  "homepage": "https://www.cabalspy.xyz/cabalspy-id/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CabalSpy/socialfi-widget.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CabalSpy/socialfi-widget/issues"
+  },
+  "type": "module",
+  "main": "./index.cjs",
+  "module": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js",
+      "require": "./index.cjs"
+    },
+    "./react": {
+      "types": "./react.d.ts",
+      "import": "./react.js",
+      "require": "./react.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "react": [
+        "./react.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "index.cjs",
+    "index.d.ts",
+    "index.js",
+    "react.cjs",
+    "react.d.ts",
+    "react.js"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/exports.test.mjs"
+  },
+  "dependencies": {
+    "cabalspy-id": "^0.5.0"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

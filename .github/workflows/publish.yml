@@ -1,0 +1,26 @@
+name: publish
+
+# Publishes when a GitHub release is published, with Trusted Publishing (OIDC):
+# no token is stored anywhere.
+# The matching cabalspy-id version must already be on npm.
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  id-token: write # OIDC for trusted publishing and provenance
+
+jobs:
+  npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24 # ships npm 11, required for trusted publishing
+          registry-url: https://registry.npmjs.org
+      - run: npm install --no-package-lock && npm install --no-save --no-package-lock react@18
+      - run: npm test
+      - run: npm publish --access public
