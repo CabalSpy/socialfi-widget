@@ -26,8 +26,22 @@ test('socialfi-widget/react re-exports the React components', () => {
 });
 
 test('attribute mapping', () => {
-  const attrs = pkg.thesisWidgetAttributes({ chain: 'solana', mint: 'M', accentText: '#fff', compact: true });
+  const attrs = pkg.thesisWidgetAttributes({ chain: 'solana', mint: 'M', clientId: 'csid_x', accentText: '#fff', compact: true });
   assert.equal(attrs['data-accent-text'], '#fff');
   assert.equal(attrs['data-compact'], 'true');
   assert.equal(require('../index.cjs').loginButtonAttributes({ clientId: 'c' })['data-client-id'], 'c');
+});
+
+// Trade Feed widgets (cabalspy-id 0.6.0+): checked when the installed cabalspy-id has them.
+test('Trade Feed widgets', { skip: !('mountTradeFeed' in core) && 'cabalspy-id < 0.6.0' }, () => {
+  for (const name of ['mountTradeFeedButton', 'mountTradeFeed', 'tradeFeedButtonAttributes', 'tradeFeedWidgetAttributes', 'setTradeFeedAccessToken']) {
+    assert.equal(typeof pkg[name], 'function', name);
+  }
+  assert.equal(pkgReact.TradeFeedButton, coreReact.TradeFeedButton);
+  assert.equal(pkgReact.TradeFeed, coreReact.TradeFeed);
+  const attrs = pkg.tradeFeedButtonAttributes({ trader: 'alice', clientId: 'csid_x', size: 'sm' });
+  assert.equal(attrs['data-csid-trade-feed-button'], '');
+  assert.equal(attrs['data-trader'], 'alice');
+  assert.equal(require('../index.cjs').tradeFeedWidgetAttributes({ clientId: 'csid_x', filter: 'buys' })['data-filter'], 'buys');
+  assert.throws(() => pkg.tradeFeedWidgetAttributes({}), /client_id/);
 });
