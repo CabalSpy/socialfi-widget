@@ -1,7 +1,7 @@
 {
   "name": "socialfi-widget",
-  "version": "0.5.0",
-  "description": "SocialFi widget — drop-in \"Sign in with CabalSpy ID\" button and token theses widget for any website or React app: login with X + verified wallets, KOL badges, holders' theses with live PnL. By CabalSpy ID.",
+  "version": "0.6.0",
+  "description": "SocialFi widget — drop-in \"Sign in with CabalSpy ID\" button, token theses widget and Trade Feed widgets for any website or React app: login with X + verified wallets, KOL badges, holders' theses with live PnL, a live feed of the traders your users add. By CabalSpy ID.",
   "keywords": [
     "socialfi-widget",
     "socialfi-api",
@@ -78,7 +78,7 @@
     "test": "node --test test/exports.test.mjs"
   },
   "dependencies": {
-    "cabalspy-id": "^0.5.0"
+    "cabalspy-id": "^0.6.0"
   },
   "peerDependencies": {
     "react": ">=18"
