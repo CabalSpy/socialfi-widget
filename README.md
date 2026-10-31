@@ -52,11 +52,11 @@ Contents: the `cabalspy-id/widget` entry point and `cabalspy-id/widget/react`.
 | [socialfi-thesis](https://github.com/CabalSpy/socialfi-thesis) | `socialfi-thesis` | `socialfi-thesis` |
 | [socialfi-widget](https://github.com/CabalSpy/socialfi-widget) | `socialfi-widget` | – |
 
-Versions follow `cabalspy-id`: 0.5.0 depends on `cabalspy-id` 0.5.0. This package contains no code of its own — it re-exports part of `cabalspy-id`, so behaviour, fixes and types are always the same.
+Versions follow `cabalspy-id`: 0.6.0 depends on `cabalspy-id` 0.6.0. This package contains no code of its own — it re-exports part of `cabalspy-id`, so behaviour, fixes and types are always the same.
 
 ## Releasing
 
-Publish a GitHub release (any tag, e.g. `v0.5.0`) after the matching `cabalspy-id` version is on npm; the publish workflow uses npm trusted publishing.
+Publish a GitHub release (any tag, e.g. `v0.6.0`) after the matching `cabalspy-id` version is on npm; the publish workflow uses npm trusted publishing.
 
 ## License
 
