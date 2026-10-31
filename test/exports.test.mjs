@@ -26,7 +26,8 @@ test('socialfi-widget/react re-exports the React components', () => {
 });
 
 test('attribute mapping', () => {
-  const attrs = pkg.thesisWidgetAttributes({ chain: 'solana', mint: 'M', accentText: '#fff', compact: true });
+  const attrs = pkg.thesisWidgetAttributes({ chain: 'solana', mint: 'M', clientId: 'csid_test', accentText: '#fff', compact: true });
+  assert.equal(attrs['data-client-id'], 'csid_test');
   assert.equal(attrs['data-accent-text'], '#fff');
   assert.equal(attrs['data-compact'], 'true');
   assert.equal(require('../index.cjs').loginButtonAttributes({ clientId: 'c' })['data-client-id'], 'c');
