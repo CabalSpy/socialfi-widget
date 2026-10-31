@@ -90,5 +90,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "react": "^18.3.1"
   }
 }
